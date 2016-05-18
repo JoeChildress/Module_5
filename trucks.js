@@ -549,7 +549,7 @@ function getTruck( day ) {
 
   var truck;
 
-  function getTruck( obj ) {
+  function getTruckByDay( obj ) {
 
     if ( obj.name && obj.name.indexOf( day ) > -1 ) {
       return true;
@@ -558,7 +558,7 @@ function getTruck( day ) {
     }
   }
 
-  truck = foodTrucks.filter( getTruck );
+  truck = foodTrucks.filter( getTruckByDay );
 
   return truck;
 }
@@ -644,10 +644,14 @@ function removeTruck( name ) {
   }
 }
 
-module.exports.getTrucks = getTrucks;
-module.exports.getTruck = getTruck;
-module.exports.getFoodTypes = getFoodTypes;
-module.exports.filterByDay = filterByDay;
-module.exports.filterByFoodType = filterByFoodType;
-module.exports.addTruck = addTruck;
-module.exports.removeTruck = removeTruck;
+var truckFunctions = {
+  getTrucks: getTrucks,
+  getTruck: getTruck,
+  getFoodTypes: getFoodTypes,
+  filterByDay: filterByDay,
+  filterByFoodType: filterByFoodType,
+  addTruck: addTruck,
+  removeTruck: removeTruck
+};
+
+module.exports = truckFunctions;
